@@ -1,0 +1,27 @@
+int function fac(int i) 
+{
+ let int otricdec = N1;
+ let int otricbin = NB11101;
+ let int otricoct = NO12345;
+
+  let string a = "sas";
+   where (i ~ P0) {
+      ret 1;
+   }
+   else {
+      let int z = i - P1;
+      let int res = i * fac(z);
+      ret res;
+   }   
+}
+
+main
+{
+   let int res = fac(6);
+ 
+
+   write "Результат = ";
+   let char character = 'a';
+   writeln res;
+}
+#123123
