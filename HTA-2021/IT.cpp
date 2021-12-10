@@ -27,7 +27,9 @@ namespace IT {
 
 	int IsId(IdTable& idtable, char id[ID_MAXSIZE]) {
 		for (int i = 0; i < idtable.size; i++) {
-			if (strcmp(idtable.table[i].id, id) == 0) return i;
+			char buffer[ID_MAXSIZE];
+			strcpy(buffer, idtable.table[i].id);
+			if (strcmp(buffer, id) == 0) return i;
 		}
 
 		return TI_NULLIDX;

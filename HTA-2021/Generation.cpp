@@ -29,8 +29,9 @@ namespace Gen {
 		out << "EXTRN OutputStr: proc\n";
 		out << "EXTRN OutputIntLn: proc\n";
 		out << "EXTRN OutputStrLn: proc\n";
-		out << "EXTRN slen: proc\n";
-		out << "EXTRN scpy: proc\n";
+		out << "EXTRN ShowChar: proc\n";
+		out << "EXTRN ShowCharLine: proc\n";
+		out << "EXTRN destiny: proc\n";
 		// Here will be other libs
 
 		out << "\n.stack 4096\n\n";
@@ -43,6 +44,10 @@ namespace Gen {
 				out << "\t" << idT.table[i].id;
 				if (idT.table[i].iddatatype == IT::STR)
 					out << " BYTE \"" << idT.table[i].value.vstr.str << "\", 0";
+
+				if (idT.table[i].iddatatype == IT::CHAR)
+					out << " BYTE \"" << idT.table[i].value.vchar << "\", 0";
+
 				if (idT.table[i].iddatatype == IT::INT || idT.table[i].iddatatype == IT::BOOL)
 					out << " SDWORD " << idT.table[i].value.vint;
 				out << "\n";
@@ -58,6 +63,8 @@ namespace Gen {
 				if (idT.table[lexT.table[i + 2].idxTI].idtype == IT::V) {
 					out << "\t" << idT.table[lexT.table[i + 2].idxTI].id;
 					if (idT.table[lexT.table[i + 2].idxTI].iddatatype == IT::STR)
+						out << " DWORD ?\n";
+					if (idT.table[lexT.table[i + 2].idxTI].iddatatype == IT::CHAR)
 						out << " DWORD ?\n";
 					if (idT.table[lexT.table[i + 2].idxTI].iddatatype == IT::INT || idT.table[lexT.table[i + 2].idxTI].iddatatype == IT::BOOL)
 						out << " SDWORD 0\n";
@@ -136,7 +143,7 @@ namespace Gen {
 							stk.push(idT.table[lexT.table[i].idxTI].id);
 							break;
 						}
-						if (idT.table[lexT.table[i].idxTI].iddatatype == IT::STR) {
+						if (idT.table[lexT.table[i].idxTI].iddatatype == IT::STR || idT.table[lexT.table[i].idxTI].iddatatype == IT::CHAR) {
 							char* s;
 							if (idT.table[lexT.table[i].idxTI].idtype == IT::L) {
 								out << "\tpush offset " << idT.table[lexT.table[i].idxTI].id << "\n";
@@ -192,10 +199,6 @@ namespace Gen {
 							stk.pop();
 						}
 
-						/*if (flag_callfunc) {
-							out << "\tcall " << idT.table[lexT.table[i - countParm - 1].idxTI].id << "\n\tpush eax\n";
-							flag_callfunc = false;
-						}*/
 						out << "\tcall " << idT.table[lexT.table[i].idxTI].id << "\n\tpush eax\n";
 						flag_callfunc = false;
 						break;
@@ -388,7 +391,13 @@ namespace Gen {
 						out << "\tpush offset ";
 					else
 						out << "\tpush ";
-					out << idT.table[lexT.table[i + 1].idxTI].id << "\n\tcall OutputStr\n";
+
+					out << idT.table[lexT.table[i + 1].idxTI].id;
+
+					if (idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::CHAR) {
+						out << "\n\tcall ShowChar\n";
+					}
+					out << "\n\tcall OutputStr\n";
 				}
 				break;
 
@@ -400,7 +409,14 @@ namespace Gen {
 						out << "\tpush offset ";
 					else
 						out << "\tpush ";
-					out << idT.table[lexT.table[i + 1].idxTI].id << "\n\tcall OutputStrLn\n";
+
+					out << idT.table[lexT.table[i + 1].idxTI].id;
+
+					if (idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::CHAR) {
+						out << "\n\tcall ShowCharLine\n";
+					}
+					else
+						out << "\n\tcall OutputStrLn\n";
 				}
 				break;
 			}

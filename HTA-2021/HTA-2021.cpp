@@ -24,27 +24,24 @@ int wmain(int argc, wchar_t* argv[]) {
 		log = Log::getlog(parm.log);
 		Log::WriteLog(log);
 		Log::WriteParm(log, parm);
+
 		In::IN in = In::getin(parm);
 		Log::WriteIn(log, in);
 
 		Lex::LEX lex = Lex::LexAnaliz(log, in);
 
+		MFST::check_syntax(lex, log, *log.stream);
+
+		if (!Semantic::Analyze(lex, log)) {
+			std::cout << "Semantic errors. Check log file to get more info";
+			exit(-1);
+		}
+
+		Polish::startPolish(lex);
+		Lex::Synchronization(lex);
 		WriteIdTableLog(lex.idtable, log);
 		WriteLexTableLog(lex.lextable, log);
-
-		/*     MFST::check_syntax(lex, log, *log.stream);
-			 if (!Semantic::Analyze(lex, log)) {
-				 std::cout << "Semantic errors. Check log file to get more info";
-				 exit(-1);
-			 }
-			 Polish::startPolish(lex);
-			 Lex::Synchronization(lex);
-
-			 IT::ShowTable(lex.idtable, *log.stream);
-			 Log::WriteLexTableLog(lex.lextable, log);
-			 LT::ShowTable(lex.lextable, *log.stream);
-
-			 Gen::Generator Gener(lex.lextable, lex.idtable, parm.out);*/
+		Gen::Generator Gener(lex.lextable, lex.idtable, parm.out);
 		Log::Close(log);
 	}
 	catch (Error::ERROR e) {

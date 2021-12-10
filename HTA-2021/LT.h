@@ -6,6 +6,7 @@
 #define LT_TI_NULLIDX	0xffffffff
 #define LEX_INT			't'
 #define LEX_STRING		't'
+#define LEX_CHAR        't'
 #define LEX_BOOL		't'
 #define LEX_ID			'i'
 #define LEX_LITERAL		'l'

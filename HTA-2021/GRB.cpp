@@ -17,7 +17,6 @@ namespace GRB {
 		return b;
 	}
 
-
 	Rule::Rule(GRBALPHABET pnn, int piderror, short psize, Chain c, ...)
 	{
 		nn = pnn;
@@ -77,5 +76,4 @@ namespace GRB {
 	{
 		return greibach;
 	}
-
 }

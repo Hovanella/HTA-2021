@@ -16,86 +16,83 @@
     <Filter Include="Source Files\InputOutput">
       <UniqueIdentifier>{25d6c4dc-e63e-41a9-8341-8f4c2ca587b1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Log">
+      <UniqueIdentifier>{2f0c3846-5275-4ffb-aa04-d5d73e7e7f38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Errors">
+      <UniqueIdentifier>{6a40c622-ee9e-4e92-9b09-3fd87129a7cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\In">
+      <UniqueIdentifier>{ece7790c-f399-44e5-845e-8be4ced05ed3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tables">
+      <UniqueIdentifier>{2c1b8fdc-d543-4009-bb49-47de5c8a51c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\LexicalAnalysis">
+      <UniqueIdentifier>{8918e650-cf78-4203-aa04-c6d5a4f5f929}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Polish">
+      <UniqueIdentifier>{4b98f1cd-da9f-4650-bb42-6f5f6731aa2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SyntacticAnalysis">
+      <UniqueIdentifier>{9989e2b3-92bf-4e8b-8441-5a7a8e92cfc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CodeGeneration">
+      <UniqueIdentifier>{800326a3-1a5b-42e1-bf57-d26e3194b567}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HTA-2021.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="In.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IT.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LexAnalisys.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Log.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LT.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MFST.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Out.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Parm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Polish.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SemAnalysis.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Div.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Log.cpp">
+      <Filter>Source Files\Log</Filter>
     </ClCompile>
     <ClCompile Include="Error.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Errors</Filter>
+    </ClCompile>
+    <ClCompile Include="Div.cpp">
+      <Filter>Source Files\In</Filter>
+    </ClCompile>
+    <ClCompile Include="In.cpp">
+      <Filter>Source Files\In</Filter>
+    </ClCompile>
+    <ClCompile Include="IT.cpp">
+      <Filter>Source Files\Tables</Filter>
+    </ClCompile>
+    <ClCompile Include="LT.cpp">
+      <Filter>Source Files\Tables</Filter>
     </ClCompile>
     <ClCompile Include="FST.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\LexicalAnalysis</Filter>
+    </ClCompile>
+    <ClCompile Include="LexAnalisys.cpp">
+      <Filter>Source Files\LexicalAnalysis</Filter>
+    </ClCompile>
+    <ClCompile Include="Parm.cpp">
+      <Filter>Source Files\In</Filter>
+    </ClCompile>
+    <ClCompile Include="Polish.cpp">
+      <Filter>Source Files\Polish</Filter>
     </ClCompile>
     <ClCompile Include="GRB.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\SyntacticAnalysis</Filter>
+    </ClCompile>
+    <ClCompile Include="MFST.cpp">
+      <Filter>Source Files\SyntacticAnalysis</Filter>
+    </ClCompile>
+    <ClCompile Include="Generation.cpp">
+      <Filter>Source Files\CodeGeneration</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FST.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="In.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IT.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LexAnalisys.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Log.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LT.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MFST.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Out.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Parm.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Polish.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Rule.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="SemAnalysis.h">
@@ -104,17 +101,50 @@
     <ClInclude Include="stdafx.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Div.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Log.h">
+      <Filter>Source Files\Log</Filter>
     </ClInclude>
     <ClInclude Include="Error.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Errors</Filter>
+    </ClInclude>
+    <ClInclude Include="Div.h">
+      <Filter>Source Files\In</Filter>
+    </ClInclude>
+    <ClInclude Include="In.h">
+      <Filter>Source Files\In</Filter>
+    </ClInclude>
+    <ClInclude Include="IT.h">
+      <Filter>Source Files\Tables</Filter>
+    </ClInclude>
+    <ClInclude Include="LT.h">
+      <Filter>Source Files\Tables</Filter>
+    </ClInclude>
+    <ClInclude Include="FST.h">
+      <Filter>Source Files\LexicalAnalysis</Filter>
     </ClInclude>
     <ClInclude Include="Graphs.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\LexicalAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="LexAnalisys.h">
+      <Filter>Source Files\LexicalAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="Parm.h">
+      <Filter>Source Files\In</Filter>
+    </ClInclude>
+    <ClInclude Include="Polish.h">
+      <Filter>Source Files\Polish</Filter>
     </ClInclude>
     <ClInclude Include="GRB.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\SyntacticAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="MFST.h">
+      <Filter>Source Files\SyntacticAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="Rule.h">
+      <Filter>Source Files\SyntacticAnalysis</Filter>
+    </ClInclude>
+    <ClInclude Include="Generation.h">
+      <Filter>Source Files\CodeGeneration</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -133,7 +133,7 @@ namespace MFST {
 
 	bool Mfst::start(std::ostream& stream_out) {
 		MFST_TRACE_START
-		bool rc = false;
+			bool rc = false;
 		RC_STEP rc_step = SURPRISE;
 		char buf[MFST_DIAGN_MAXSIZE]{};
 		rc_step = step(stream_out);

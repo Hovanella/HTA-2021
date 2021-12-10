@@ -94,6 +94,14 @@ namespace Lex {
 				entryIT.iddatatype = IT::STR;
 				strcpy(entryIT.value.vstr.str, "");
 			}
+
+			else if (FST::execute(FST::FST(word[i], FST_CHAR))) {
+				LT::Entry entryLT = WriteEntry(entryLT, LEX_CHAR, LT_TI_NULLIDX, line);
+				LT::Add(lextable, entryLT);
+				findType = true;
+				entryIT.iddatatype = IT::CHAR;
+				entryIT.value.vchar = '\u0000';
+			}
 			else if (FST::execute(FST::FST(word[i], FST_FUNCTION))) {
 				LT::Entry entryLT = WriteEntry(entryLT, LEX_FUNCTION, LT_TI_NULLIDX, line);
 				LT::Add(lextable, entryLT);
@@ -176,7 +184,7 @@ namespace Lex {
 				LT::Entry entryLT = WriteEntry(entryLT, LEX_LITERAL, IT::IsId(idtable, word[i]), line);
 				LT::Add(lextable, entryLT);
 			}
-			else if (FST::execute(FST::FST(word[i], FST_SLEN))) {
+			else if (FST::execute(FST::FST(word[i], FST_DESTINY))) {
 				if (int idx = IT::IsId(idtable, word[i]) == TI_NULLIDX) {
 					entryIT.idtype = IT::F;
 					entryIT.iddatatype = IT::INT;
@@ -189,7 +197,7 @@ namespace Lex {
 				LT::Entry entryLT = WriteEntry(entryLT, LEX_ID, IT::IsId(idtable, word[i]), line);
 				LT::Add(lextable, entryLT);
 			}
-			else if (FST::execute(FST::FST(word[i], FST_SCPY))) {
+			else if (FST::execute(FST::FST(word[i], FST_Ping))) {
 				if (int idx = IT::IsId(idtable, word[i]) == TI_NULLIDX) {
 					entryIT.idtype = IT::F;
 					entryIT.iddatatype = IT::STR;
@@ -354,7 +362,6 @@ namespace Lex {
 				}
 				if (findSameID) continue;
 
-				strcpy(entryIT.value.vstr.str, word[i]);
 				entryIT.value.vchar = currentChar;
 				entryIT.idtype = IT::L;
 				entryIT.iddatatype = IT::CHAR;
@@ -369,7 +376,7 @@ namespace Lex {
 
 				int k = 0;
 				for (k = 0; k < idtable.size; k++) {
-					if (!idtable.table[k].value.vchar == currentChar)
+					if (idtable.table[k].value.vchar == currentChar)
 						break;
 				}
 				LT::Entry entryLT = WriteEntry(entryLT, LEX_LITERAL, k, line);
@@ -404,6 +411,9 @@ namespace Lex {
 						entryIT.value.vstr.len = 0;
 						memset(entryIT.value.vstr.str, TI_STR_DEFAULT, sizeof(char));
 					}
+					else if (entryIT.iddatatype == IT::CHAR) {
+						entryIT.value.vchar = TI_CHAR_DEFAULT;
+					}
 				}
 
 				entryIT.idxFirstLE = indexLex;
@@ -411,7 +421,11 @@ namespace Lex {
 					strcpy(bufprefix, functions.top().c_str());
 					word[i] = strcat(bufprefix, word[i]);
 				}
+
+				auto type = entryIT.iddatatype;
 				strcpy(entryIT.id, word[i]);
+				entryIT.iddatatype = type;
+
 				int idx = IT::IsId(idtable, word[i]);
 				if (idx == TI_NULLIDX)
 					IT::Add(idtable, entryIT);
