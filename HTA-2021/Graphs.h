@@ -15,13 +15,6 @@
 	FST::NODE(1, FST::RELATION('t', 3)),\
 	FST::NODE()
 
-#define FST_BOOL 5,	\
-	FST::NODE(1, FST::RELATION('b', 1)),\
-	FST::NODE(1, FST::RELATION('o', 2)),\
-	FST::NODE(1, FST::RELATION('o', 3)),\
-	FST::NODE(1, FST::RELATION('l', 4)),\
-	FST::NODE()
-
 #define FST_STRING 7,	\
 	FST::NODE(1, FST::RELATION('s', 1)),\
 	FST::NODE(1, FST::RELATION('t', 2)),\
@@ -173,21 +166,6 @@
 	FST::NODE()
 #pragma endregion
 
-#define FST_TRUE 5,	\
-	FST::NODE(1, FST::RELATION('t', 1)),\
-	FST::NODE(1, FST::RELATION('r', 2)),\
-	FST::NODE(1, FST::RELATION('u', 3)),\
-	FST::NODE(1, FST::RELATION('e', 4)),\
-	FST::NODE()
-
-#define FST_FALSE 6,	\
-	FST::NODE(1, FST::RELATION('f', 1)),\
-	FST::NODE(1, FST::RELATION('a', 2)),\
-	FST::NODE(1, FST::RELATION('l', 3)),\
-	FST::NODE(1, FST::RELATION('s', 4)),\
-	FST::NODE(1, FST::RELATION('e', 5)),\
-	FST::NODE()
-
 #define FST_STRLIT 3,	\
 	FST::NODE(1, FST::RELATION('\"', 1)),\
 	FST::NODE(153, \
@@ -286,22 +264,6 @@
 	FST::NODE(9, FST::RELATION('+', 1), FST::RELATION('-', 1), FST::RELATION('*', 1), FST::RELATION('/', 1), FST::RELATION('%', 1), FST::RELATION('>', 1), FST::RELATION('<', 1), FST::RELATION('~', 1), FST::RELATION('!', 1)),\
 	FST::NODE()
 
-#define FST_PLUS 2,	\
-	FST::NODE(1, FST::RELATION('+', 1)),\
-	FST::NODE()
-
-#define FST_MINUS 2,	\
-	FST::NODE(1, FST::RELATION('-', 1)),\
-	FST::NODE()
-
-#define FST_STAR 2,	\
-	FST::NODE(1, FST::RELATION('*', 1)),\
-	FST::NODE()
-
-#define FST_DIRSLASH 2,	\
-	FST::NODE(1, FST::RELATION('/', 1)),\
-	FST::NODE()
-
 #define FST_SEMICOLON 2,	\
 	FST::NODE(1, FST::RELATION(';', 1)),\
 	FST::NODE()
@@ -330,11 +292,15 @@
 	FST::NODE(1, FST::RELATION('=', 1)),\
 	FST::NODE()
 
-#define FST_Ping 5,	\
-	FST::NODE(1, FST::RELATION('P', 1)),\
+#define FST_FINDSYMB 9,	\
+	FST::NODE(1, FST::RELATION('f', 1)),\
 	FST::NODE(1, FST::RELATION('i', 2)),\
 	FST::NODE(1, FST::RELATION('n', 3)),\
-	FST::NODE(1, FST::RELATION('g', 4)),\
+	FST::NODE(1, FST::RELATION('d', 4)),\
+	FST::NODE(1, FST::RELATION('S', 5)),\
+	FST::NODE(1, FST::RELATION('y', 6)),\
+	FST::NODE(1, FST::RELATION('m', 7)),\
+	FST::NODE(1, FST::RELATION('b', 8)),\
 	FST::NODE()
 
 #define FST_DESTINY 8,	\

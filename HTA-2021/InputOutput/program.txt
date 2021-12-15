@@ -1,6 +1,12 @@
-
 main
 {  
-   let int a = destiny();
-   write a;
+ 
+ let int a = P10;
+ let int b = P15;
+
+ let int c = a+b;
+
+ write c;
+
+
 }

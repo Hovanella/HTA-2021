@@ -51,6 +51,19 @@ extern "C" {
 		std::cout << std::endl;
 	}
 
-	int destiny() {
+	int destiny(int leftBorder, int rightBorder) {
+		return leftBorder + (rand() % ((rightBorder - leftBorder) + 1));
+	}
+
+	int findSymb(char* string, char* symb) {
+		if (string == nullptr || symb == nullptr)
+			return -1;
+
+		char symbol = symb[0];
+
+		for (int i = 0; string[i] != '\0'; i++)
+			if (string[i] == symbol) return i;
+
+		return -1;
 	}
 }

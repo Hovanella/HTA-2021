@@ -25,10 +25,13 @@ int wmain(int argc, wchar_t* argv[]) {
 		Log::WriteLog(log);
 		Log::WriteParm(log, parm);
 
-		In::IN in = In::getin(parm);
+		In::IN in = In::Getin(parm);
 		Log::WriteIn(log, in);
 
 		Lex::LEX lex = Lex::LexAnaliz(log, in);
+
+		WriteIdTableLog(lex.idtable, log);
+		WriteLexTableLog(lex.lextable, log);
 
 		MFST::check_syntax(lex, log, *log.stream);
 
@@ -39,8 +42,6 @@ int wmain(int argc, wchar_t* argv[]) {
 
 		Polish::startPolish(lex);
 		Lex::Synchronization(lex);
-		WriteIdTableLog(lex.idtable, log);
-		WriteLexTableLog(lex.lextable, log);
 		Gen::Generator Gener(lex.lextable, lex.idtable, parm.out);
 		Log::Close(log);
 	}

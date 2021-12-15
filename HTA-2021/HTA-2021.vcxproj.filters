@@ -151,6 +151,9 @@
     <Text Include="InputOutput\program.txt">
       <Filter>Source Files\InputOutput</Filter>
     </Text>
+    <Text Include="Test.txt">
+      <Filter>Source Files\InputOutput</Filter>
+    </Text>
     <Text Include="InputOutput\program.txt.log">
       <Filter>Source Files\InputOutput</Filter>
     </Text>

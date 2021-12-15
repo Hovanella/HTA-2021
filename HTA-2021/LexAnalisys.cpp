@@ -24,14 +24,14 @@ namespace Lex {
 		LT::LexTable lextable = LT::Create(LT_MAXSIZE);
 		IT::IdTable idtable = IT::Create(TI_MAXSIZE);
 
-		cleanup(in.text, in.size, log);
+		CleanCode(in.text, in.size, log);
 
 		char** word = new char* [max_word];
 		for (int i = 0; i < max_word; i++)
 			word[i] = new char[size_word] {NULL};
 
 		do {
-			word = divideText(in.text, in.size);
+			word = TextSeparation(in.text, in.size);
 		} while (word == NULL);
 
 		/*for (int i = 0; word[i]; i++) {
@@ -80,12 +80,6 @@ namespace Lex {
 				LT::Add(lextable, entryLT);
 				findType = true;
 				entryIT.iddatatype = IT::INT;
-			}
-			else if (FST::execute(FST::FST(word[i], FST_BOOL))) {
-				LT::Entry entryLT = WriteEntry(entryLT, LEX_BOOL, LT_TI_NULLIDX, line);
-				LT::Add(lextable, entryLT);
-				findType = true;
-				entryIT.iddatatype = IT::BOOL;
 			}
 			else if (FST::execute(FST::FST(word[i], FST_STRING))) {
 				LT::Entry entryLT = WriteEntry(entryLT, LEX_STRING, LT_TI_NULLIDX, line);
@@ -154,36 +148,6 @@ namespace Lex {
 				LT::Add(lextable, entryLT);
 				is_cycle++;
 			}
-			else if (FST::execute(FST::FST(word[i], FST_TRUE)) || FST::execute(FST::FST(word[i], FST_FALSE))) {
-				int value;
-				if (!strcmp((char*)word[i], "true")) value = 1;
-				else value = 0;
-
-				for (int k = 0; k < idtable.size; k++) {
-					if (idtable.table[k].value.vint == value && idtable.table[k].idtype == IT::L && idtable.table[k].iddatatype == IT::BOOL) {
-						LT::Entry entryLT = WriteEntry(entryLT, LEX_LITERAL, k, line);
-						LT::Add(lextable, entryLT);
-						findSameID = true;
-						break;
-					}
-				}
-
-				if (findSameID) continue;
-
-				entryIT.idtype = IT::L;
-				entryIT.iddatatype = IT::BOOL;
-				entryIT.value.vint = value;
-				entryIT.idxFirstLE = indexLex;
-				_itoa_s(literalCounter++, charclit, sizeof(char) * 10, 10);
-				strcpy(bufL, L);
-				word[i] = strcat(bufL, charclit);
-				strcpy(entryIT.id, word[i]);
-				IT::Add(idtable, entryIT);
-				entryIT = {};
-
-				LT::Entry entryLT = WriteEntry(entryLT, LEX_LITERAL, IT::IsId(idtable, word[i]), line);
-				LT::Add(lextable, entryLT);
-			}
 			else if (FST::execute(FST::FST(word[i], FST_DESTINY))) {
 				if (int idx = IT::IsId(idtable, word[i]) == TI_NULLIDX) {
 					entryIT.idtype = IT::F;
@@ -197,10 +161,11 @@ namespace Lex {
 				LT::Entry entryLT = WriteEntry(entryLT, LEX_ID, IT::IsId(idtable, word[i]), line);
 				LT::Add(lextable, entryLT);
 			}
-			else if (FST::execute(FST::FST(word[i], FST_Ping))) {
+
+			else if (FST::execute(FST::FST(word[i], FST_FINDSYMB))) {
 				if (int idx = IT::IsId(idtable, word[i]) == TI_NULLIDX) {
 					entryIT.idtype = IT::F;
-					entryIT.iddatatype = IT::STR;
+					entryIT.iddatatype = IT::INT;
 					entryIT.idxFirstLE = indexLex;
 					strcpy(entryIT.id, word[i]);
 					IT::Add(idtable, entryIT);

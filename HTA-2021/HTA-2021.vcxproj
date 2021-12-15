@@ -180,6 +180,7 @@
   <ItemGroup>
     <Text Include="InputOutput\program.txt" />
     <Text Include="InputOutput\program.txt.log" />
+    <Text Include="Test.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

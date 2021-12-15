@@ -32,6 +32,7 @@ namespace Gen {
 		out << "EXTRN ShowChar: proc\n";
 		out << "EXTRN ShowCharLine: proc\n";
 		out << "EXTRN destiny: proc\n";
+		out << "EXTRN findSymb: proc\n";
 		// Here will be other libs
 
 		out << "\n.stack 4096\n\n";
@@ -394,10 +395,10 @@ namespace Gen {
 
 					out << idT.table[lexT.table[i + 1].idxTI].id;
 
-					if (idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::CHAR) {
+					if (idT.table[lexT.table[i + 1].idxTI].iddatatype == IT::CHAR)
 						out << "\n\tcall ShowChar\n";
-					}
-					out << "\n\tcall OutputStr\n";
+					else
+						out << "\n\tcall OutputStr\n";
 				}
 				break;
 

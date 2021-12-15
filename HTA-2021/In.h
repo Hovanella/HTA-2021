@@ -9,7 +9,7 @@
 #define IN_CODE_TABLE {\
 	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::BR, IN::T, IN::T, IN::T, IN::T, IN::T,\
 	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, \
-	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::L, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, \
+	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, \
 	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, \
 	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, \
 	IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, IN::T, \
@@ -29,7 +29,7 @@ namespace In
 {
 	struct IN
 	{
-		enum { T = 1024, F = 2048, I = 4096, BR, L };
+		enum { T = 1024, F = 2048, I = 4096, BR };
 		char** splitted;
 		int count;
 		int size;
@@ -38,5 +38,5 @@ namespace In
 		char* text;
 		int code[256] = IN_CODE_TABLE;
 	};
-	IN getin(Parm::PARM parm);
+	IN Getin(Parm::PARM parm);
 }
