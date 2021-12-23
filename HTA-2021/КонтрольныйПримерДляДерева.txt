@@ -1,6 +1,6 @@
 int Minor func1(int a,int b){
 
-showbr "funcion 1 works";
+showbr "func1 works";
 
 define int res = a+b;
 
@@ -9,13 +9,15 @@ give res;
 }
 
 void proc1(){
-showbr "void 1 works";
+
+showbr "proc2 works";
+
+
 }
 
 
 MAJOR
 {  
-
 
 define int number = P12;
 
@@ -23,29 +25,15 @@ define int number2 = NB1011;
 
 define int number3 = PO20;
 
-define int number4  =  ( func1(P1,P2) + number ) / number2;
+define int number4  =  ( func1(P1,P2) + number ) % number3 / number2;
 
-
-define int dest = destiny(P0,P4)+P2;
-
-show "Destiny is "; 
-showbr dest;
-
-define charline str = "abc";
-
-define char c = 'b';
-
-define int pos = findSymb(str,c)+P1;
-
-show "Position + 1 - ";;
-showbr pos;
 
 showbr number4;
 
 
 proc1();
 
-if (number ~ number2){
+if (number < number2){
 showbr "condition true";
 }
 nif{

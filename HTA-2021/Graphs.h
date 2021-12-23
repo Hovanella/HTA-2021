@@ -3,10 +3,13 @@
 
 #pragma region  лючевые—лова
 
-#define FST_LET 4,	\
-	FST::NODE(1, FST::RELATION('l', 1)),\
+#define FST_DEFINE 7,	\
+	FST::NODE(1, FST::RELATION('d', 1)),\
 	FST::NODE(1, FST::RELATION('e', 2)),\
-	FST::NODE(1, FST::RELATION('t', 3)),\
+	FST::NODE(1, FST::RELATION('f', 3)),\
+	FST::NODE(1, FST::RELATION('i', 4)),\
+	FST::NODE(1, FST::RELATION('n', 5)),\
+	FST::NODE(1, FST::RELATION('e', 6)),\
 	FST::NODE()
 
 #define FST_INT 4,	\
@@ -15,13 +18,15 @@
 	FST::NODE(1, FST::RELATION('t', 3)),\
 	FST::NODE()
 
-#define FST_STRING 7,	\
-	FST::NODE(1, FST::RELATION('s', 1)),\
-	FST::NODE(1, FST::RELATION('t', 2)),\
-	FST::NODE(1, FST::RELATION('r', 3)),\
-	FST::NODE(1, FST::RELATION('i', 4)),\
-	FST::NODE(1, FST::RELATION('n', 5)),\
-	FST::NODE(1, FST::RELATION('g', 6)),\
+#define FST_CHARLINE 9,	\
+	FST::NODE(1, FST::RELATION('c', 1)),\
+	FST::NODE(1, FST::RELATION('h', 2)),\
+	FST::NODE(1, FST::RELATION('a', 3)),\
+	FST::NODE(1, FST::RELATION('r', 4)),\
+	FST::NODE(1, FST::RELATION('l', 5)),\
+	FST::NODE(1, FST::RELATION('i', 6)),\
+	FST::NODE(1, FST::RELATION('n', 7)),\
+	FST::NODE(1, FST::RELATION('e', 8)),\
 	FST::NODE()
 
 #define FST_CHAR 5,	\
@@ -31,82 +36,72 @@
 	FST::NODE(1, FST::RELATION('r', 4)),\
 	FST::NODE()
 
-#define FST_FUNCTION 9,	\
-	FST::NODE(1, FST::RELATION('f', 1)),\
-	FST::NODE(1, FST::RELATION('u', 2)),\
+#define FST_MINOR 6,	\
+	FST::NODE(1, FST::RELATION('M', 1)),\
+	FST::NODE(1, FST::RELATION('i', 2)),\
 	FST::NODE(1, FST::RELATION('n', 3)),\
-	FST::NODE(1, FST::RELATION('c', 4)),\
-	FST::NODE(1, FST::RELATION('t', 5)),\
-	FST::NODE(1, FST::RELATION('i', 6)),\
-	FST::NODE(1, FST::RELATION('o', 7)),\
-	FST::NODE(1, FST::RELATION('n', 8)),\
+	FST::NODE(1, FST::RELATION('o', 4)),\
+	FST::NODE(1, FST::RELATION('r', 5)),\
 	FST::NODE()
 
-#define FST_RET 4,	\
-	FST::NODE(1, FST::RELATION('r', 1)),\
-	FST::NODE(1, FST::RELATION('e', 2)),\
-	FST::NODE(1, FST::RELATION('t', 3)),\
+#define FST_GIVE 5,	\
+	FST::NODE(1, FST::RELATION('g', 1)),\
+	FST::NODE(1, FST::RELATION('i', 2)),\
+	FST::NODE(1, FST::RELATION('v', 3)),\
+	FST::NODE(1, FST::RELATION('e', 4)),\
 	FST::NODE()
 
-#define FST_PROCEDURE 10,	\
-	FST::NODE(1, FST::RELATION('p', 1)),\
-	FST::NODE(1, FST::RELATION('r', 2)),\
-	FST::NODE(1, FST::RELATION('o', 3)),\
-	FST::NODE(1, FST::RELATION('c', 4)),\
-	FST::NODE(1, FST::RELATION('e', 5)),\
-	FST::NODE(1, FST::RELATION('d', 6)),\
-	FST::NODE(1, FST::RELATION('u', 7)),\
-	FST::NODE(1, FST::RELATION('r', 8)),\
-	FST::NODE(1, FST::RELATION('e', 9)),\
+#define FST_VOID 5,	\
+	FST::NODE(1, FST::RELATION('v', 1)),\
+	FST::NODE(1, FST::RELATION('o', 2)),\
+	FST::NODE(1, FST::RELATION('i', 3)),\
+	FST::NODE(1, FST::RELATION('d', 4)),\
 	FST::NODE()
 
-#define FST_WHERE 6,	\
-	FST::NODE(1, FST::RELATION('w', 1)),\
+#define FST_IF 3,	\
+	FST::NODE(1, FST::RELATION('i', 1)),\
+	FST::NODE(1, FST::RELATION('f', 2)),\
+	FST::NODE()
+
+#define FST_NIF 4,	\
+	FST::NODE(1, FST::RELATION('n', 1)),\
+	FST::NODE(1, FST::RELATION('i', 2)),\
+	FST::NODE(1, FST::RELATION('f', 3)),\
+	FST::NODE()
+
+#define FST_SHOW 5,	\
+	FST::NODE(1, FST::RELATION('s', 1)),\
 	FST::NODE(1, FST::RELATION('h', 2)),\
-	FST::NODE(1, FST::RELATION('e', 3)),\
-	FST::NODE(1, FST::RELATION('r', 4)),\
-	FST::NODE(1, FST::RELATION('e', 5)),\
+	FST::NODE(1, FST::RELATION('o', 3)),\
+	FST::NODE(1, FST::RELATION('w', 4)),\
 	FST::NODE()
 
-#define FST_ELSE 5,	\
-	FST::NODE(1, FST::RELATION('e', 1)),\
-	FST::NODE(1, FST::RELATION('l', 2)),\
-	FST::NODE(1, FST::RELATION('s', 3)),\
-	FST::NODE(1, FST::RELATION('e', 4)),\
+#define FST_SHOWBR 7,	\
+	FST::NODE(1, FST::RELATION('s', 1)),\
+	FST::NODE(1, FST::RELATION('h', 2)),\
+	FST::NODE(1, FST::RELATION('o', 3)),\
+	FST::NODE(1, FST::RELATION('w', 4)),\
+	FST::NODE(1, FST::RELATION('b', 5)),\
+	FST::NODE(1, FST::RELATION('r', 6)),\
 	FST::NODE()
 
-#define FST_WRITE 6,	\
-	FST::NODE(1, FST::RELATION('w', 1)),\
-	FST::NODE(1, FST::RELATION('r', 2)),\
-	FST::NODE(1, FST::RELATION('i', 3)),\
+#define FST_MAJOR 6,	\
+	FST::NODE(1, FST::RELATION('M', 1)),\
+	FST::NODE(1, FST::RELATION('A', 2)),\
+	FST::NODE(1, FST::RELATION('J', 3)),\
+	FST::NODE(1, FST::RELATION('O', 4)),\
+	FST::NODE(1, FST::RELATION('R', 5)),\
+	FST::NODE()
+
+#define FST_CONTINUE 9, \
+	FST::NODE(1, FST::RELATION('c', 1)),\
+	FST::NODE(1, FST::RELATION('o', 2)),\
+	FST::NODE(1, FST::RELATION('n', 3)),\
 	FST::NODE(1, FST::RELATION('t', 4)),\
-	FST::NODE(1, FST::RELATION('e', 5)),\
-	FST::NODE()
-
-#define FST_WRITELN 8,	\
-	FST::NODE(1, FST::RELATION('w', 1)),\
-	FST::NODE(1, FST::RELATION('r', 2)),\
-	FST::NODE(1, FST::RELATION('i', 3)),\
-	FST::NODE(1, FST::RELATION('t', 4)),\
-	FST::NODE(1, FST::RELATION('e', 5)),\
-	FST::NODE(1, FST::RELATION('l', 6)),\
-	FST::NODE(1, FST::RELATION('n', 7)),\
-	FST::NODE()
-
-#define FST_MAIN 5,	\
-	FST::NODE(1, FST::RELATION('m', 1)),\
-	FST::NODE(1, FST::RELATION('a', 2)),\
-	FST::NODE(1, FST::RELATION('i', 3)),\
-	FST::NODE(1, FST::RELATION('n', 4)),\
-	FST::NODE()
-
-#define FST_REPEAT 7, \
-	FST::NODE(1, FST::RELATION('r', 1)),\
-	FST::NODE(1, FST::RELATION('e', 2)),\
-	FST::NODE(1, FST::RELATION('p', 3)),\
-	FST::NODE(1, FST::RELATION('e', 4)),\
-	FST::NODE(1, FST::RELATION('a', 5)),\
-	FST::NODE(1, FST::RELATION('t', 6)),\
+	FST::NODE(1, FST::RELATION('i', 5)),\
+	FST::NODE(1, FST::RELATION('n', 6)),\
+	FST::NODE(1, FST::RELATION('u', 7)),\
+	FST::NODE(1, FST::RELATION('e', 8)),\
 	FST::NODE()
 #pragma endregion
 

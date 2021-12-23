@@ -7,5 +7,5 @@
 
 const char Separators[] = { " ><%,;(){}=+-*/|~" };
 
-void CleanCode(char source[], int size, Log::LOG logfile);
-char** TextSeparation(char source[], int size);
+void Cleaning(char source[], int size, Log::LOG logfile);
+char** SeparateText(char source[], int size);

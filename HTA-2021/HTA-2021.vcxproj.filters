@@ -9,10 +9,6 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="Source Files\InputOutput">
       <UniqueIdentifier>{25d6c4dc-e63e-41a9-8341-8f4c2ca587b1}</UniqueIdentifier>
     </Filter>
@@ -34,11 +30,18 @@
     <Filter Include="Source Files\Polish">
       <UniqueIdentifier>{4b98f1cd-da9f-4650-bb42-6f5f6731aa2c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\SyntacticAnalysis">
-      <UniqueIdentifier>{9989e2b3-92bf-4e8b-8441-5a7a8e92cfc0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\CodeGeneration">
       <UniqueIdentifier>{800326a3-1a5b-42e1-bf57-d26e3194b567}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SemanticalAnalysis">
+      <UniqueIdentifier>{eff2ea90-ac50-49c7-9a36-12762ed861a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SemanticalAnalysis\SyntacticAnalysis">
+      <UniqueIdentifier>{9989e2b3-92bf-4e8b-8441-5a7a8e92cfc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\InputOutput\Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -46,9 +49,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Out.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SemAnalysis.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Log.cpp">
@@ -72,9 +72,6 @@
     <ClCompile Include="FST.cpp">
       <Filter>Source Files\LexicalAnalysis</Filter>
     </ClCompile>
-    <ClCompile Include="LexAnalisys.cpp">
-      <Filter>Source Files\LexicalAnalysis</Filter>
-    </ClCompile>
     <ClCompile Include="Parm.cpp">
       <Filter>Source Files\In</Filter>
     </ClCompile>
@@ -82,20 +79,23 @@
       <Filter>Source Files\Polish</Filter>
     </ClCompile>
     <ClCompile Include="GRB.cpp">
-      <Filter>Source Files\SyntacticAnalysis</Filter>
+      <Filter>Source Files\SemanticalAnalysis\SyntacticAnalysis</Filter>
     </ClCompile>
     <ClCompile Include="MFST.cpp">
-      <Filter>Source Files\SyntacticAnalysis</Filter>
+      <Filter>Source Files\SemanticalAnalysis\SyntacticAnalysis</Filter>
     </ClCompile>
     <ClCompile Include="Generation.cpp">
       <Filter>Source Files\CodeGeneration</Filter>
     </ClCompile>
+    <ClCompile Include="SemAnalysis.cpp">
+      <Filter>Source Files\SemanticalAnalysis</Filter>
+    </ClCompile>
+    <ClCompile Include="LexAnalisys.cpp">
+      <Filter>Source Files\LexicalAnalysis</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Out.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SemAnalysis.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
@@ -135,26 +135,32 @@
       <Filter>Source Files\Polish</Filter>
     </ClInclude>
     <ClInclude Include="GRB.h">
-      <Filter>Source Files\SyntacticAnalysis</Filter>
+      <Filter>Source Files\SemanticalAnalysis\SyntacticAnalysis</Filter>
     </ClInclude>
     <ClInclude Include="MFST.h">
-      <Filter>Source Files\SyntacticAnalysis</Filter>
+      <Filter>Source Files\SemanticalAnalysis\SyntacticAnalysis</Filter>
     </ClInclude>
     <ClInclude Include="Rule.h">
-      <Filter>Source Files\SyntacticAnalysis</Filter>
+      <Filter>Source Files\SemanticalAnalysis\SyntacticAnalysis</Filter>
     </ClInclude>
     <ClInclude Include="Generation.h">
       <Filter>Source Files\CodeGeneration</Filter>
+    </ClInclude>
+    <ClInclude Include="SemAnalysis.h">
+      <Filter>Source Files\SemanticalAnalysis</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="InputOutput\program.txt">
       <Filter>Source Files\InputOutput</Filter>
     </Text>
-    <Text Include="Test.txt">
+    <Text Include="InputOutput\program.txt.log">
       <Filter>Source Files\InputOutput</Filter>
     </Text>
-    <Text Include="InputOutput\program.txt.log">
+    <Text Include="КонтрольныйПримерДляДерева.txt">
+      <Filter>Source Files\InputOutput</Filter>
+    </Text>
+    <Text Include="Контрольный пример.txt">
       <Filter>Source Files\InputOutput</Filter>
     </Text>
   </ItemGroup>

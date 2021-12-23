@@ -20,20 +20,8 @@ namespace FST {
 			relations[i] = ptr[i];
 		}
 	}
-	
+
 	FST::FST(char* s, short ns, NODE n, ...) {
-		//string = s;
-		//position = -1; // p = 0
-		//nstates = ns;
-
-		//rstates = new short[nstates];
-		//NODE* ptr = &n;
-		//nodes = new NODE[nstates];
-		//for (int i = 0; i < nstates; i++) {
-		//	rstates[i] = 0;
-		//	nodes[i] = ptr[i];
-		//}
-
 		string = s;
 		nstates = ns;
 		nodes = new NODE[ns];
@@ -45,7 +33,7 @@ namespace FST {
 		rstates[0] = 0;
 		position = -1;
 	}
-	
+
 	bool step(FST& fst, short*& rstates) {
 		bool rc = false;
 		std::swap(rstates, fst.rstates);

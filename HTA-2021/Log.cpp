@@ -148,11 +148,7 @@ namespace Log {
 					break;
 				case  IT::IDDATATYPE::STR:
 					*log.stream << setw(10) << left;
-					*log.stream << "string" << " | ";
-					break;
-				case  IT::IDDATATYPE::BOOL:
-					*log.stream << setw(10) << left;
-					*log.stream << "bool" << " | ";
+					*log.stream << "charline" << " | ";
 					break;
 				case  IT::IDDATATYPE::CHAR:
 					*log.stream << setw(10) << left;

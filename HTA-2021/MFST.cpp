@@ -154,6 +154,7 @@ namespace MFST {
 			stream_out << getDiagnosis(0, buf) << std::endl;
 			stream_out << getDiagnosis(1, buf) << std::endl;
 			stream_out << getDiagnosis(2, buf) << std::endl;
+			exit(-1);
 			break;
 		case NS_NORULECHAIN:
 			MFST_TRACE4("------>NS_NORULECHAIN") break;
